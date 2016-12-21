@@ -35,6 +35,9 @@ phina.define('MainScene', {
         options.fill = color[i];
         this.finger[i] = phina.display.CircleShape(options).addChildTo(this);
         this.finger[i].visible = false;
+        phina.display.Label({text:""+(i+1), fontSize:64})
+          .addChildTo(this.finger[i])
+          .setPosition(0, -96);
     }
   },
 
