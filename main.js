@@ -22,15 +22,17 @@ phina.define('MainScene', {
     this.label.x = this.gridX.center();
     this.label.y = this.gridY.center();
 
+    var color = ['red', 'blue', 'yellow', 'green', 'white'];
     var options = {
         backgroundColor: 'transparent',
         fill: 'blue',
         stroke: 'black',
         strokeWidth: 3,
-        radius: 32,
+        radius: 64,
     };
     this.finger = [];
     for (var i = 0; i < 5; i++) {
+        options.fill = color[i];
         this.finger[i] = phina.display.CircleShape(options).addChildTo(this);
         this.finger[i].visible = false;
     }
