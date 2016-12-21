@@ -35,7 +35,10 @@ phina.define('MainScene', {
         options.fill = color[i];
         this.finger[i] = phina.display.CircleShape(options).addChildTo(this);
         this.finger[i].visible = false;
-        this.finger[i].label = phina.display.Label({text:""+(i+1), fontSize:64})
+        this.finger[i].label = phina.display.Label({text:"", fontSize: 32})
+          .addChildTo(this.finger[i])
+          .setPosition(0, 96);
+        phina.display.Label({text:""+(i+1), fontSize: 64})
           .addChildTo(this.finger[i])
           .setPosition(0, -96);
     }
