@@ -18,7 +18,7 @@ phina.define('MainScene', {
     // 背景色
     this.backgroundColor = '#FFF';
 
-    this.label = phina.display.Label('Hello, runstant!').addChildTo(this);
+    this.label = phina.display.Label().addChildTo(this);
     this.label.x = this.gridX.center();
     this.label.y = this.gridY.center();
 
