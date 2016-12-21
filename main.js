@@ -21,13 +21,32 @@ phina.define('MainScene', {
     this.label = phina.display.Label('Hello, runstant!').addChildTo(this);
     this.label.x = this.gridX.center();
     this.label.y = this.gridY.center();
-    this.label.update = function() {
+
+    var options = {
+        backgroundColor: 'transparent',
+        fill: 'blue',
+        stroke: 'black',
+        strokeWidth: 3,
+        radius: 32,
+    };
+    this.finger = [];
+    for (var i = 0; i < 5; i++) {
+        this.finger[i] = phina.display.CircleShape(options).addChildTo(this);
+        this.finger[i].visible = false;
     }
   },
 
   update: function() {
     var p = app.pointers;
-    this.label.text = "pointers:"+p.length;
+    this.label.text = "touches: "+p.length;
+    for (var i = 0; i < 5; i++) {
+        if (i < p.length) {
+            this.finger[i].visible = true;
+            this.finger[i].setPosition(p[i].x, p[i].y);
+        } else {
+            this.finger[i].visible = false;
+        }
+    }
   },
 
   onkeydown: function(e) {
