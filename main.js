@@ -26,10 +26,8 @@ phina.define('MainScene', {
   },
 
   update: function() {
-    var list = app.touchList;
-    if (list.touches.length != 0) {
-        this.label.text = "ok";
-    }
+    var p = app.pointers;
+    this.label.text = "pointers:"+p.length;
   },
 
   onkeydown: function(e) {
