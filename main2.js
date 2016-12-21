@@ -35,7 +35,7 @@ phina.define('MainScene', {
         options.fill = color[i];
         this.finger[i] = phina.display.CircleShape(options).addChildTo(this);
         this.finger[i].visible = false;
-        phina.display.Label({text:""+(i+1), fontSize: 64})
+        this.finger[i].label = phina.display.Label({text:"", fontSize: 64})
           .addChildTo(this.finger[i])
           .setPosition(0, -96);
     }
@@ -48,6 +48,7 @@ phina.define('MainScene', {
         if (i < p.length) {
             this.finger[i].visible = true;
             this.finger[i].setPosition(p[i].x, p[i].y);
+            this.finger[i].label.text = p[i].id;
         } else {
             this.finger[i].visible = false;
         }
